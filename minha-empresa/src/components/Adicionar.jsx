@@ -1,7 +1,7 @@
-import Modal from 'react-bootstrap/Modal'
-import Formulario from './Formulario'
+import Modal from "react-bootstrap/Modal"
+import Formulario from "./Formulario"
 
-function Adicionar(show, setShow){
+function Adicionar({show, setShow}){
     return(
         <>
             <Modal show={show} onHide={() => setShow(false)}>

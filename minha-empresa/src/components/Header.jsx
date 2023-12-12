@@ -2,9 +2,10 @@ import Navbar from "react-bootstrap/Navbar"
 import Container from "react-bootstrap/Container"
 import Button from "react-bootstrap/Button"
 import Adicionar from "./Adicionar"
+import { useState } from "react"
 
 function Header({btn}){
-
+    
     const [show, setShow] = useState(false)
 
     function sair(){
@@ -25,7 +26,7 @@ function Header({btn}){
                         </div>
                     ) : ""}
                 </Container>
-                <Adicionar show={show} setShow={setShow} />
+                <Adicionar show={show} setShow={setShow}/>
             </Navbar>
         </header>
     )

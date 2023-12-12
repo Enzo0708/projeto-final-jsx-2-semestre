@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 
 function Formulario({funcionario, setShow}){
@@ -9,31 +10,20 @@ function Formulario({funcionario, setShow}){
         const departamento = event.target[2].value
         const salario = event.target[3].value
 
-        if(id){
-            axios.put("https://apiaulas.thiagodev502.repl.co/funcionarios/" + funcionario.id , {
-                nome,
-                cargo,
-                departamento,
-                salario
-            }
-            ).then(() => {
+        if(funcionario){
+            axios.put("https://apiaulas.thiagodev502.repl.co/funcionarios/" + funcionario.id,{nome, cargo, departamento, salario})
+            .then(() => {
                 setShow(false)
                 window.location.reload()
             })
         }else{
-            axios.post("https://apiaulas.thiagodev502.repl.co/funcionarios", {
-                nome,
-                cargo,
-                departamento,
-                salario
-            }
-            ).then(() => {
+            axios.post("https://apiaulas.thiagodev502.repl.co/funcionarios", {nome, cargo, departamento, salario})
+            .then(() => {
                 setShow(false)
                 window.location.reload()
             })
-        
+        }
     }
-}
 
     return(
         <Form onSubmit={enviarDados}>
